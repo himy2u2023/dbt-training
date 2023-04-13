@@ -1,0 +1,25 @@
+
+version: 2 
+
+sources:
+    - name: globalmart 
+      description:  a clone of the snowflake database
+      database: raw
+      schema: globalmart
+      tables:
+        - name: customer
+        - name: orders
+          description: raw orders table
+          columns:
+            - name: orderid
+              description: primary key for orders
+              tests:
+                - unique
+                - not_null
+            
+        - name: product
+            # columns:
+            #   - loaded_at_field: loadat
+            #   freshness:
+            #     warn_after: {count:12, period:hour}
+            #     error_after: {count:24, period:hour}
